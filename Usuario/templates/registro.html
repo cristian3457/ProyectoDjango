@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'FoodFunApp/assets/css/bootstrap-4.1.3.min.css' %}">
+    <title>Login</title>
+</head>
+
+<body>
+    {% if "datos" in request.GET %}
+    <p>{{existe}}</p> {% endif %}
+    <div class="col-10 col-md-6 m-auto p-4" style="margin-top: 3rem !important; border: 1px solid black; box-shadow: 8px 8px 8px gray; border-radius: 8px;">
+        <div class="text-center mt-3 mb-5">
+            <img src="{% static 'FoodFunApp/assets/images/logo/logo.png' %}" alt="logo">
+        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-12 col-md-6">
+                    <label for="username">Usuario</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Usuario">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="first_name">Nombre</label>
+                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Nombre">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="last_name">Apellidos</label>
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Apellidos">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="conf_password">Repetir Password</label>
+                    <input type="password" class="form-control" name="conf_password" id="conf_password" placeholder="Repetir Password">
+                </div>
+            </div>
+            <p class="text-center">¿Ya tienes cuenta? <a href="{% url 'Login' %}">Iniciar Sesión</a></p>
+            <button type="submit" class="btn btn-primary text-uppercase btn-block mt-3 mb-3">Registrarse</button>
+        </form>
+    </div>
+</body>
+
+</html>

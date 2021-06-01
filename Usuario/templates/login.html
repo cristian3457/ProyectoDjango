@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'FoodFunApp/assets/css/bootstrap-4.1.3.min.css' %}">
+    <title>Login</title>
+</head>
+
+<body>
+    {% if "novalido" in request.GET %}
+    <div class="container alert alert-danger alert-dismissible fade show mt-4" role="alert">
+        <strong>Credenciales incorrectas, vuelva a intentarlo :( </strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endif %}
+    <div class="col-10 col-md-4 m-auto p-4" style="margin-top: 5rem !important; border: 1px solid black; box-shadow: 8px 8px 8px gray; border-radius: 8px;">
+        <div class="text-center mt-3 mb-5">
+            <img src="{% static 'FoodFunApp/assets/images/logo/logo.png' %}" alt="logo">
+        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-12">
+                    <label for="usuario">Email</label>
+                    <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Email">
+                </div>
+                <div class="form-group col-12">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+            </div>
+            <p class="text-center">¿Aún no tienes cuenta? <a href="{% url 'Registro' %}">Registrarme</a></p>
+            <button type="submit" class="btn btn-primary text-uppercase btn-block mt-3 mb-3">Identificarse</button>
+        </form>
+    </div>
+    <script src="{% static 'FoodFunApp/assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'FoodFunApp/assets/js/vendor/bootstrap-4.1.3.min.js' %}"></script>
+</body>
+
+</html>

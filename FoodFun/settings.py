@@ -125,12 +125,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 # STATIC_URL = '/FoodFunApp/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_root')
-
+# Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static', 'static_dirs'),
+    os.path.join(BASE_DIR, 'static'),
 )
 # STATIC_ROOT = BASE_DIR / 'assets'
 # Default primary key field type

@@ -25,4 +25,4 @@ urlpatterns = [
     path('', include('contacto.urls')),
     path('', include('Usuario.urls')),
     path('', include('colores.urls')),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]

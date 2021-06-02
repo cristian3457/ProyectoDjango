@@ -1,1 +1,1 @@
-web: gunicorn FoodFun.wsgi
+web: gunicorn FoodFun.wsgi --log-file -
